@@ -4,7 +4,7 @@ export default function PasswordInput() {
       <input
         type="text"
         readOnly
-        placeholder="sdsddsds"
+        placeholder="P4$5W0rD!"
         className="passwordInput__input"
       />
       <button className="passwordInput__copybtn">
