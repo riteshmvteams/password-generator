@@ -6,7 +6,7 @@ export default function Button() {
     useContext<contextType>(PasswordContext);
 
   const isDisabled =
-    !passLength || !uppercase || !lowercase || !numbers || !special;
+    !passLength && !uppercase && !lowercase && !numbers && !special;
   return (
     <button className="generateBtn" disabled={isDisabled} onClick={getPassword}>
       <span className="generateBtn__text">Generate</span>

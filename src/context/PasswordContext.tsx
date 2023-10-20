@@ -36,6 +36,8 @@ const PasswordProvider = ({ children }: { children: React.ReactNode }) => {
       special
     );
     setPassword(pass);
+
+    console.log(pass);
   };
 
   const value = {
