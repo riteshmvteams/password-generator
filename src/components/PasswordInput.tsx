@@ -1,4 +1,8 @@
+import { useContext } from "react";
+import { PasswordContext, contextType } from "../context/PasswordContext";
+
 export default function PasswordInput() {
+  const { password } = useContext<contextType>(PasswordContext);
   return (
     <div className="passwordInput">
       <input
@@ -6,6 +10,7 @@ export default function PasswordInput() {
         readOnly
         placeholder="P4$5W0rD!"
         className="passwordInput__input"
+        defaultValue={password}
       />
       <button className="passwordInput__copybtn">
         <svg

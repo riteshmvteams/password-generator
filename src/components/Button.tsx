@@ -2,13 +2,13 @@ import { useContext } from "react";
 import { PasswordContext, contextType } from "../context/PasswordContext";
 
 export default function Button() {
-  const { passLength, uppercase, lowercase, numbers, special } =
+  const { passLength, uppercase, lowercase, numbers, special, getPassword } =
     useContext<contextType>(PasswordContext);
 
   const isDisabled =
     !passLength || !uppercase || !lowercase || !numbers || !special;
   return (
-    <button className="generateBtn" disabled={isDisabled}>
+    <button className="generateBtn" disabled={isDisabled} onClick={getPassword}>
       <span className="generateBtn__text">Generate</span>
       <span className="generateBtn__icon">
         <svg width="12" height="12" xmlns="http://www.w3.org/2000/svg">

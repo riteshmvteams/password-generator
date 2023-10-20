@@ -13,7 +13,7 @@ export type contextType = {
   special: boolean;
   setSpecial: (val: boolean) => void;
   getPassword: () => void;
-  password: string | null;
+  password: string;
 };
 
 export const PasswordContext = createContext<contextType | undefined>(
@@ -25,7 +25,7 @@ const PasswordProvider = ({ children }: { children: React.ReactNode }) => {
   const [lowercase, setLowercase] = useState(false);
   const [numbers, setNumbers] = useState(false);
   const [special, setSpecial] = useState(false);
-  const [password, setPassword] = useState<string | null>(null);
+  const [password, setPassword] = useState<string>("");
 
   const getPassword = () => {
     const pass = generatePassword(
