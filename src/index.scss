@@ -195,6 +195,10 @@ input {
   border: 2px solid transparent;
   transition: 150ms;
 
+  &:disabled {
+    pointer-events: none;
+  }
+
   &:is(:hover, :focus, :focus-visible) {
     background-color: transparent;
     color: $accent;
