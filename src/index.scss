@@ -269,3 +269,29 @@ input {
     fill: $accent;
   }
 }
+
+.clipboard__message {
+  position: fixed;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50px);
+  padding: 0.5rem 2rem;
+  border-radius: 0.5rem;
+  transition: 300ms;
+  opacity: 0;
+
+  &.active {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+
+  &.fail {
+    background-color: rgba(240, 224, 196, 0.404);
+    color: orange;
+  }
+
+  &.success {
+    background-color: rgba(203, 236, 203, 0.185);
+    color: rgb(29, 221, 29);
+  }
+}
