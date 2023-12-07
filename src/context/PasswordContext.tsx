@@ -14,13 +14,14 @@ export type contextType = {
   setSpecial: (val: boolean) => void;
   getPassword: () => void;
   password: string;
+  copyClipboard: () => void;
 };
 
 export const PasswordContext = createContext<contextType | undefined>(
   undefined
 );
 const PasswordProvider = ({ children }: { children: React.ReactNode }) => {
-  const [passLength, setPassLength] = useState(0);
+  const [passLength, setPassLength] = useState(10);
   const [uppercase, setUppercase] = useState(false);
   const [lowercase, setLowercase] = useState(false);
   const [numbers, setNumbers] = useState(false);
@@ -28,6 +29,10 @@ const PasswordProvider = ({ children }: { children: React.ReactNode }) => {
   const [password, setPassword] = useState<string>("");
 
   const getPassword = () => {
+    if (passLength < 10) {
+      window.alert("Select atleast 10 characters");
+      return;
+    }
     const pass = generatePassword(
       passLength,
       uppercase,
@@ -36,8 +41,10 @@ const PasswordProvider = ({ children }: { children: React.ReactNode }) => {
       special
     );
     setPassword(pass);
+  };
 
-    console.log(pass);
+  const copyClipboard = () => {
+    window.navigator.clipboard.writeText(password);
   };
 
   const value = {
@@ -53,6 +60,7 @@ const PasswordProvider = ({ children }: { children: React.ReactNode }) => {
     setSpecial,
     getPassword,
     password,
+    copyClipboard,
   };
 
   return (

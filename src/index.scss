@@ -168,6 +168,18 @@ input {
     &--title {
       text-transform: uppercase;
       font-size: 2rem;
+
+      &.Low {
+        color: red;
+      }
+
+      &.Medium {
+        color: orange;
+      }
+
+      &.Good {
+        color: greenyellow;
+      }
     }
 
     &--indicator {
@@ -175,11 +187,39 @@ input {
       gap: 8px;
       align-items: center;
 
+      & > h4 {
+        &.Low {
+          color: red;
+        }
+
+        &.Medium {
+          color: orange;
+        }
+
+        &.Good {
+          color: greenyellow;
+        }
+      }
+
       & span {
         display: block;
         height: 30px;
         width: 15px;
         border: 2px solid $white;
+      }
+
+      &.Low span:first-of-type {
+        background-color: red;
+        border-color: red;
+      }
+      &.Medium span:nth-of-type(2),
+      &.Medium span:first-of-type {
+        background-color: orange;
+        border-color: orange;
+      }
+      &.Good span {
+        background-color: greenyellow;
+        border-color: greenyellow;
       }
     }
   }
@@ -196,7 +236,9 @@ input {
   transition: 150ms;
 
   &:disabled {
+    cursor: not-allowed;
     pointer-events: none;
+    user-select: none;
   }
 
   &:is(:hover, :focus, :focus-visible) {

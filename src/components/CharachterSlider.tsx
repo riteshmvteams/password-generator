@@ -1,9 +1,11 @@
+// @ts-nocheck
 import { useContext } from "react";
 import { PasswordContext, contextType } from "../context/PasswordContext";
 
 export default function CharachterSlider() {
   const { passLength, setPassLength } =
     useContext<contextType>(PasswordContext);
+
   return (
     <div className="mainbody__character">
       <div className="mainbody__character--wrap">

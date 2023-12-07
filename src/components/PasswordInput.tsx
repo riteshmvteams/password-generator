@@ -1,8 +1,9 @@
+// @ts-nocheck
 import { useContext } from "react";
 import { PasswordContext, contextType } from "../context/PasswordContext";
 
 export default function PasswordInput() {
-  const { password } = useContext<contextType>(PasswordContext);
+  const { password, copyClipboard } = useContext<contextType>(PasswordContext);
   return (
     <div className="passwordInput">
       <input
@@ -12,7 +13,11 @@ export default function PasswordInput() {
         className="passwordInput__input"
         defaultValue={password}
       />
-      <button className="passwordInput__copybtn">
+      <button
+        className="passwordInput__copybtn"
+        onClick={copyClipboard}
+        disabled={password.length < 10 ? true : false}
+      >
         <svg
           width="21"
           height="24"

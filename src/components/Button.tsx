@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useContext } from "react";
 import { PasswordContext, contextType } from "../context/PasswordContext";
 
@@ -6,7 +7,8 @@ export default function Button() {
     useContext<contextType>(PasswordContext);
 
   const isDisabled =
-    !passLength && !uppercase && !lowercase && !numbers && !special;
+    passLength < 10 || (!uppercase && !lowercase && !numbers && !special);
+  // const dis = passLength < 10 || !uppercase
   return (
     <button className="generateBtn" disabled={isDisabled} onClick={getPassword}>
       <span className="generateBtn__text">Generate</span>

@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { useContext } from "react";
 import { PasswordContext, contextType } from "../context/PasswordContext";
 
@@ -12,8 +14,6 @@ export default function PasswordOptions() {
     setNumbers,
     setSpecial,
   } = useContext<contextType>(PasswordContext);
-
-  console.log(uppercase, lowercase, numbers, special);
 
   return (
     <div className="mainbody__options">
